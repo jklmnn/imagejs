@@ -5,6 +5,8 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-char *generate(char*, int);
+#define GIF_JS_HEADER 18
+
+char *gif_js(char*, int);
 
 #endif
