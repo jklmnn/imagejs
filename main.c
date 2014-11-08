@@ -5,6 +5,8 @@
 
 int main(int argc, char *argv[]){
 	if(argc < 2){
+		printf("ImageJs Version 0.1\n");
+		printf("Usage: %s [javascript file]\n", argv[0]);
 		return 1;
 	}
 	FILE *in;

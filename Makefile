@@ -1,4 +1,4 @@
 all:
-	gcc -std=c11 gif.c main.c -o gifjs
+	gcc -std=c11 gif.c main.c -o imagejs
 clean:
-	rm gifjs
+	rm imagejs
