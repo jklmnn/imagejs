@@ -1,3 +1,11 @@
+/*
+File: main.c
+Project: imagejs
+Author: jklmnn
+Homepage: https://https://github.com/jklmnn/imagejs
+License: GNU GENERAL PUBLIC LICENSE Version 3
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>

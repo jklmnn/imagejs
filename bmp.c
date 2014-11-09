@@ -1,3 +1,12 @@
+/*
+File: bmp.c
+Project: imagejs
+Author: jklmnn
+Homepage: https://https://github.com/jklmnn/imagejs
+License: GNU GENERAL PUBLIC LICENSE Version 3
+*/
+
+
 #include "bmp.h"
 
 char *bmp_js(char *content, int size){
