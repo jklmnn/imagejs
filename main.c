@@ -16,8 +16,8 @@ int main(int argc, char *argv[]){
 	FILE *out;
 	int filesize;
 	char *buf;
-	in = fopen(argv[2], "r");
-	out = fopen(argv[3], "w");
+	in = fopen(argv[2], "rb");
+	out = fopen(argv[3], "wb");
 	fseek(in, 0, SEEK_END);
 	filesize = ftell(in);
 	rewind(in);
