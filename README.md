@@ -8,3 +8,10 @@ Usage:
 
 Run 'make' to compile and then run 'imagejs option jsfile.js imagefile'.
 Options are currently bmp and gif.
+
+Background:
+-----------
+
+This tool allows you to create a picture file that is able to run javascript code.
+A file like this is able to extend XSS vulnerabilities. For example, if you are able to put a script tag on a website but cant run the script because it only runs scripts from this website, you can just upload e.g. a profile picture containing the code you want to run.
+The idea came from [Ajin Abraham](http://iamajin.blogspot.in/2014/11/when-gifs-serve-javascript.html) and i put it in c code and also added the ability to do the same thing also with bitmap files.
