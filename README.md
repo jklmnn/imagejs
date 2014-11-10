@@ -6,8 +6,14 @@ Currently supported are gif and bmp.
 
 Usage:
 
-Run 'make' to compile and then run 'imagejs option jsfile.js imagefile'.
+Run 'make' to compile and then run 'imagejs option jsfile.js'
+The outcoming image file will be named like the input file + the image ending..
 Options are currently bmp and gif.
+
+Example:
+
+`$ ./imagejs gif code.js`  
+will return a file named code.js.gif
 
 Background:
 -----------

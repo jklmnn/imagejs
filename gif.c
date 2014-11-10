@@ -20,3 +20,15 @@ char* gif_js(char *content, int size){
 	}
 	return buffer;
 }
+
+char *gif_filename(char *fn, int size){
+        char _gif_ending[GIF_ENDING] = {0x2e, 0x67, 0x69, 0x66, 0x00};
+	char *newfile = (char*)malloc(size + GIF_ENDING);
+        for(int i = 0; i < size; i++){
+                newfile[i] = fn[i];
+        }
+	for(int i = 0; i < GIF_ENDING; i++){
+		newfile[size + i] = _gif_ending[i];
+	}
+        return newfile;
+}

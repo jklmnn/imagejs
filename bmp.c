@@ -20,3 +20,15 @@ char *bmp_js(char *content, int size){
 	}
 	return buffer;
 }
+
+char *bmp_filename(char *fn, int size){
+	char _bmp_ending[BMP_ENDING] = {0x2e, 0x62, 0x6d, 0x70, 0x00};
+	char *newfile = (char*)malloc(size + BMP_ENDING);
+	for(int i = 0; i < size; i++){
+		newfile[i] = fn[i];
+	}
+	for(int i = 0; i < BMP_ENDING; i++){
+		newfile[size + i] = _bmp_ending[i];
+	}
+	return newfile;
+}
