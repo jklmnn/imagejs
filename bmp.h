@@ -11,6 +11,7 @@ License: GNU GENERAL PUBLIC LICENSE Version 3
 #define BMP_H
 
 #include <stdlib.h>
+#include <string.h>
 
 #define BMP_JS_HEADER 139
 #define BMP_ENDING 5

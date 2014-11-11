@@ -11,6 +11,7 @@ License: GNU GENERAL PUBLIC LICENSE Version 3
 #define GIF_H
 
 #include <stdlib.h>
+#include <string.h>
 
 #define GIF_JS_HEADER 18
 #define GIF_ENDING 5
