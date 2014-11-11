@@ -12,6 +12,7 @@ License: GNU GENERAL PUBLIC LICENSE Version 3
 
 #include "gif.h"
 #include "bmp.h"
+#include "webp.h"
 
 int getlen(char* str){
 	int i;
@@ -23,7 +24,7 @@ int main(int argc, char *argv[]){
 	if(argc < 3){
 		printf("ImageJs Version 0.1\n");
 		printf("Usage: %s [option] [javascript file]\n", argv[0]);
-		printf("Options:  gif, bmp\n");
+		printf("Options:  gif, bmp, webp\n");
 		return 1;
 	}
 	FILE *in;
@@ -49,6 +50,13 @@ int main(int argc, char *argv[]){
 		outbuf = gif_js(buf, filesize);
 		out = fopen(gif_filename(argv[2], getlen(argv[2])), "wb");
 		for(int i = 0; i < filesize + GIF_JS_HEADER; i++){
+			fprintf(out, "%c", outbuf[i]);
+		}
+	}
+	if(strcmp(argv[1], "webp") == 0){
+		outbuf = webp_js(buf, filesize);
+		out = fopen(webp_filename(argv[2], getlen(argv[2])), "wb");
+		for(int i = 0; i < filesize + WEBP_JS_HEADER; i++){
 			fprintf(out, "%c", outbuf[i]);
 		}
 	}
