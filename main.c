@@ -14,6 +14,7 @@ License: GNU GENERAL PUBLIC LICENSE Version 3
 #include "gif.h"
 #include "bmp.h"
 #include "webp.h"
+#include "pnm.h"
 
 int getlen(char* str){
 	int i;
@@ -24,7 +25,7 @@ int getlen(char* str){
 void _help(char *name){
 	printf("ImageJs Version %d.%d.%d\n", VERSION_MAJ, VERSION_MIN, VERSION_FIX);
 	printf("Usage: %s [option] [javascript file]\n", name);
-	printf("Options:  gif, bmp, webp\n");
+	printf("Options:  gif, bmp, webp, pnm\n");
 	}
 
 
@@ -66,6 +67,12 @@ int main(int argc, char *argv[]){
 		outbuf = webp_js(buf, filesize);
 		out = fopen(webp_filename(argv[2], getlen(argv[2])), "wb");
 		for(int i = 0; i < filesize + WEBP_JS_HEADER; i++){
+			fprintf(out, "%c", outbuf[i]);
+		}
+	}else if(strcmp(argv[1], "pnm") == 0){
+		outbuf = pnm_js(buf, filesize);
+		out = fopen(pnm_filename(argv[2], getlen(argv[2])), "wb");
+		for(int i = 0; i < filesize + PNM_JS_HEADER; i++){
 			fprintf(out, "%c", outbuf[i]);
 		}
 	}else{
