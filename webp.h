@@ -10,6 +10,7 @@ License: GNU GENERAL PUBLIC LICENSE Version 3
 #define WEBP_H
 
 #include <stdlib.h>
+
 #define WEBP_JS_HEADER 13
 #define WEBP_ENDING 6
 
