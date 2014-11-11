@@ -15,7 +15,7 @@ Example:
 `$ ./imagejs gif code.js`  
 will return a file named code.js.gif
 
-You can download compiled binaries at [jklmnn.de](http://jklmnn.de/index.php?nav=projects&site=imagejs).  
+You can download compiled binaries at [jklmnn.de](http://jklmnn.de/imagejs/).  
 
 Background:
 -----------
