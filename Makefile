@@ -1,3 +1,9 @@
+#File: Makefile
+#Project: imagejs
+#Author: jklmnn
+#Homepage: http://jklmnn.de/imagejs/
+#License: GNU GENERAL PUBLIC LICENSE Version 3
+
 all:
 	gcc -std=c11 gif.c bmp.c webp.c main.c -o imagejs
 i386:

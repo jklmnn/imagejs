@@ -2,7 +2,7 @@
 File: webp.c
 Project: imagejs
 Author: jklmnn
-Homepage: https://https://github.com/jklmnn/imagejs
+Homepage: http://jklmnn.de/imagejs/
 License: GNU GENERAL PUBLIC LICENSE Version 3
 */
 

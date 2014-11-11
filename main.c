@@ -2,7 +2,7 @@
 File: main.c
 Project: imagejs
 Author: jklmnn
-Homepage: https://https://github.com/jklmnn/imagejs
+Homepage: http://jklmnn.de/imagejs/
 License: GNU GENERAL PUBLIC LICENSE Version 3
 */
 
@@ -10,6 +10,7 @@ License: GNU GENERAL PUBLIC LICENSE Version 3
 #include <stdlib.h>
 #include <string.h>
 
+#include "meta.h"
 #include "gif.h"
 #include "bmp.h"
 #include "webp.h"
@@ -22,7 +23,7 @@ int getlen(char* str){
 
 int main(int argc, char *argv[]){
 	if(argc < 3){
-		printf("ImageJs Version 0.1\n");
+		printf("ImageJs Version %d.%d.%d\n", VERSION_MAJ, VERSION_MIN, VERSION_FIX);
 		printf("Usage: %s [option] [javascript file]\n", argv[0]);
 		printf("Options:  gif, bmp, webp\n");
 		return 1;
