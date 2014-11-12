@@ -12,7 +12,7 @@ License: GNU GENERAL PUBLIC LICENSE Version 3
 #include <stdlib.h>
 #include <string.h>
 
-#define WEBP_JS_HEADER 13
+#define WEBP_JS_HEADER 18
 #define WEBP_ENDING 6
 
 char *webp_js(char*, int);
