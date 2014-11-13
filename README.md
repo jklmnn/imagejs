@@ -17,7 +17,7 @@ will return a file named code.js.gif
 
 You can download compiled binaries at [jklmnn.de](http://jklmnn.de/imagejs/).  
 
-Supported output files are: gif, bmp, webp, pnm  
+Supported output files are: gif, bmp, webp, pnm, pgf  
 
 Background:
 -----------
