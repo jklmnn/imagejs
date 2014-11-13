@@ -23,16 +23,26 @@ int getlen(char* str){
 	return i;
 }
 
-void _help(char *name){
-	printf("ImageJs Version %d.%d.%d\n", VERSION_MAJ, VERSION_MIN, VERSION_FIX);
-	printf("Usage: %s [option] [javascript file]\n", name);
-	printf("Options:  gif, bmp, webp, pnm, pgf\n");
+void _help(char *name, int type){
+	switch(type){
+		case 0:
+			printf("ImageJs Version %d.%d.%d\n", VERSION_MAJ, VERSION_MIN, VERSION_FIX);
+			printf("Usage: %s [option] [javascript file] [flags]\n", name);
+			printf("Options:  gif, bmp, webp, pnm, pgf\n");
+			printf("Flags (optional):	l	prints image as viewable line\n");
+			break;
+		case 1:
+			printf("The flag \"%s\" is currently not supported for this type of file.\n", name);
+			break;
+		default:
+			_help(name, 0);
+			break;
 	}
-
+}
 
 int main(int argc, char *argv[]){
 	if(argc < 3){
-		_help(argv[0]);
+		_help(argv[0], 0);
 		return 1;
 	}
 	FILE *in;
@@ -53,37 +63,70 @@ int main(int argc, char *argv[]){
 	}
 	char *outbuf;
 	if(strcmp(argv[1], "bmp") == 0){
-		outbuf = bmp_js(buf, filesize);
-		out = fopen(bmp_filename(argv[2], getlen(argv[2])), "wb");
-		for(int i = 0; i < filesize + BMP_JS_HEADER; i++){
-			fprintf(out, "%c", outbuf[i]);
+		if(argc > 3){
+			if(strcmp(argv[3], "l") == 0){
+				outbuf = bmp_js_v(buf, filesize);
+				out = fopen(bmp_filename(argv[2], getlen(argv[2])), "wb");
+				for(int i = 0; i < filesize + BMP_JS_HEADER_V; i++){
+					fprintf(out, "%c", outbuf[i]);
+				}
+			}else{
+				_help(argv[3], 1);
+				return 3;
+			}
+		}else{
+			outbuf = bmp_js(buf, filesize);
+			out = fopen(bmp_filename(argv[2], getlen(argv[2])), "wb");
+			for(int i = 0; i < filesize + BMP_JS_HEADER; i++){
+				fprintf(out, "%c", outbuf[i]);
+			}
 		}
 	}else if(strcmp(argv[1], "gif") == 0){
-		outbuf = gif_js(buf, filesize);
-		out = fopen(gif_filename(argv[2], getlen(argv[2])), "wb");
-		for(int i = 0; i < filesize + GIF_JS_HEADER; i++){
-			fprintf(out, "%c", outbuf[i]);
+		if(argc > 3){
+			_help(argv[3], 1);
+			return 3;
+		}else{
+			outbuf = gif_js(buf, filesize);
+			out = fopen(gif_filename(argv[2], getlen(argv[2])), "wb");
+			for(int i = 0; i < filesize + GIF_JS_HEADER; i++){
+				fprintf(out, "%c", outbuf[i]);
+			}
 		}
 	}else if(strcmp(argv[1], "webp") == 0){
-		outbuf = webp_js(buf, filesize);
-		out = fopen(webp_filename(argv[2], getlen(argv[2])), "wb");
-		for(int i = 0; i < filesize + WEBP_JS_HEADER; i++){
-			fprintf(out, "%c", outbuf[i]);
+		if(argc > 3){
+			_help(argv[3], 1);
+			return 3;
+		}else{
+			outbuf = webp_js(buf, filesize);
+			out = fopen(webp_filename(argv[2], getlen(argv[2])), "wb");
+			for(int i = 0; i < filesize + WEBP_JS_HEADER; i++){
+				fprintf(out, "%c", outbuf[i]);
+			}
 		}
 	}else if(strcmp(argv[1], "pnm") == 0){
-		outbuf = pnm_js(buf, filesize);
-		out = fopen(pnm_filename(argv[2], getlen(argv[2])), "wb");
-		for(int i = 0; i < filesize + PNM_JS_HEADER; i++){
-			fprintf(out, "%c", outbuf[i]);
+		if(argc > 3){
+			_help(argv[3], 1);
+			return 3;
+		}else{
+			outbuf = pnm_js(buf, filesize);
+			out = fopen(pnm_filename(argv[2], getlen(argv[2])), "wb");
+			for(int i = 0; i < filesize + PNM_JS_HEADER; i++){
+				fprintf(out, "%c", outbuf[i]);
+			}
 		}
 	}else if(strcmp(argv[1], "pgf") == 0){
-		outbuf = pgf_js(buf, filesize);
-		out = fopen(pgf_filename(argv[2], getlen(argv[2])), "wb");
-		for(int i = 0; i < filesize + PGF_JS_HEADER; i++){
-			fprintf(out, "%c", outbuf[i]);
+		if(argc > 3){
+			_help(argv[3], 1);
+			return 3;
+		}else{
+			outbuf = pgf_js(buf, filesize);
+			out = fopen(pgf_filename(argv[2], getlen(argv[2])), "wb");
+			for(int i = 0; i < filesize + PGF_JS_HEADER; i++){
+				fprintf(out, "%c", outbuf[i]);
+			}
 		}
 	}else{
-		_help(argv[0]);
+		_help(argv[0], 0);
 		free(buf);
 		return 1;
 	}
