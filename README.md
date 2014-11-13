@@ -16,11 +16,9 @@ This is currently only supported for bmp files.
 Example:
 
 `$ ./imagejs bmp code.js -l`  
-will return a file named code.js.gif
+will return a file named code.js.bmp that is viewable.
 
-![alert("Hi!");](http://jklmnn/imagejs/media/alert.js.bmp)
-
-For more information and to view a bigger version of that image (resized) visit [jklmnn.de](http://jklmnn.de/imagejs/).  
+For more information and to view an example image visit [jklmnn.de](http://jklmnn.de/imagejs/).  
 
 Supported output files are: gif, bmp, webp, pnm, pgf  
 
