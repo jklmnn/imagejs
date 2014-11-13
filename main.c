@@ -29,7 +29,7 @@ void _help(char *name, int type){
 			printf("ImageJs Version %d.%d.%d\n", VERSION_MAJ, VERSION_MIN, VERSION_FIX);
 			printf("Usage: %s [option] [javascript file] [flags]\n", name);
 			printf("Options:  gif, bmp, webp, pnm, pgf\n");
-			printf("Flags (optional):	l	prints image as viewable line\n");
+			printf("Flags (optional):	-l	prints image as viewable line\n");
 			break;
 		case 1:
 			printf("The flag \"%s\" is currently not supported for this type of file.\n", name);
@@ -64,7 +64,7 @@ int main(int argc, char *argv[]){
 	char *outbuf;
 	if(strcmp(argv[1], "bmp") == 0){
 		if(argc > 3){
-			if(strcmp(argv[3], "l") == 0){
+			if(strcmp(argv[3], "-l") == 0){
 				outbuf = bmp_js_v(buf, filesize);
 				out = fopen(bmp_filename(argv[2], getlen(argv[2])), "wb");
 				for(int i = 0; i < filesize + BMP_JS_HEADER_V; i++){

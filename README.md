@@ -8,14 +8,19 @@ Usage:
 
 Run 'make' to compile and then run 'imagejs option jsfile.js'
 The outcoming image file will be named like the input file + the image ending..
-Options are currently bmp and gif.
+Options are currently bmp, gif, webp, pnm and pgf.
+
+If you add -l as flag you your image is written to the file so that you can open it and view your code as a line of pixels.  
+This is currently only supported for bmp files.
 
 Example:
 
-`$ ./imagejs gif code.js`  
+`$ ./imagejs bmp code.js -l`  
 will return a file named code.js.gif
 
-You can download compiled binaries at [jklmnn.de](http://jklmnn.de/imagejs/).  
+![alert("Hi!");](http://jklmnn/imagejs/media/alert.js.bmp)
+
+For more information and to view a bigger version of that image (resized) visit [jklmnn.de](http://jklmnn.de/imagejs/).  
 
 Supported output files are: gif, bmp, webp, pnm, pgf  
 
