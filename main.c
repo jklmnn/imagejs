@@ -27,12 +27,19 @@ void _help(char *name, int type){
 	switch(type){
 		case 0:
 			printf("ImageJs Version %d.%d.%d\n", VERSION_MAJ, VERSION_MIN, VERSION_FIX);
-			printf("Usage: %s [option] [javascript file] [flags]\n", name);
+			printf("Usage: %s [option] [javascript file] [flags] [args]\n", name);
 			printf("Options:  gif, bmp, webp, pnm, pgf\n");
-			printf("Flags (optional):	-l	prints image as viewable line\n");
+			printf("Flags (optional):	-l	Prints image as viewable line.\n");
+			printf("			-i	Injects code into an existing image. Needs an image file as argument.\n");
 			break;
 		case 1:
 			printf("The flag \"%s\" is currently not supported for this type of file.\n", name);
+			break;
+		case 2:
+			printf("The flag \"%s\" needs an argument.\n", name);
+			break;
+		case 3:
+			printf("The file %s could not be opened.\n", name);
 			break;
 		default:
 			_help(name, 0);
@@ -58,7 +65,7 @@ int main(int argc, char *argv[]){
 		fread(buf, 1, filesize, in);
 		fclose(in);
 	}else{
-		printf("File %s could not be opened!\n", argv[2]);
+		_help(argv[2], 3);
 		return 2;
 	}
 	char *outbuf;
@@ -83,8 +90,31 @@ int main(int argc, char *argv[]){
 		}
 	}else if(strcmp(argv[1], "gif") == 0){
 		if(argc > 3){
-			_help(argv[3], 1);
-			return 3;
+			if(argc > 4){
+				FILE *im = fopen(argv[4], "rb");
+				if(im){
+					fseek(im, 0, SEEK_END);
+					int imsize = ftell(im);
+					rewind(im);
+					char *imbuf = (char*)malloc(imsize * sizeof(char));
+					fread(imbuf, 1, imsize, im);
+					fclose(im);
+					outbuf = gif_js_i(buf, filesize, imbuf, imsize);
+					out = fopen(gif_filename(argv[2], getlen(argv[2])), "wb");
+					printf("g:%d\n", filesize + imsize + GIF_JS_HEADER_I);
+					writebuffer(outbuf, imsize + filesize + GIF_JS_HEADER_I);
+					for(int i = 0; i < (filesize + imsize + GIF_JS_HEADER_I); i++){
+						fprintf(out, "%c", outbuf[i]);
+					}
+					free(imbuf);
+				}
+			}else if(strcmp(argv[3], "-i") == 0){
+				_help(argv[3], 2);
+				return 2;
+			}else{
+				_help(argv[3], 1);
+				return 3;
+			}
 		}else{
 			outbuf = gif_js(buf, filesize);
 			out = fopen(gif_filename(argv[2], getlen(argv[2])), "wb");
