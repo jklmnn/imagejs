@@ -12,7 +12,6 @@ License: GNU GENERAL PUBLIC LICENSE Version 3
 
 #include <stdlib.h>
 #include <string.h>
-#include <stdio.h>
 
 
 #define GIF_JS_HEADER 19
@@ -22,6 +21,5 @@ License: GNU GENERAL PUBLIC LICENSE Version 3
 char *gif_js(char*, int);
 char *gif_js_i(char*, int, char*, int);
 char *gif_filename(char*, int);
-void writebuffer(char *, int);
 
 #endif

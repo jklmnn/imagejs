@@ -101,8 +101,6 @@ int main(int argc, char *argv[]){
 					fclose(im);
 					outbuf = gif_js_i(buf, filesize, imbuf, imsize);
 					out = fopen(gif_filename(argv[2], getlen(argv[2])), "wb");
-					printf("g:%d\n", filesize + imsize + GIF_JS_HEADER_I);
-					writebuffer(outbuf, imsize + filesize + GIF_JS_HEADER_I);
 					for(int i = 0; i < (filesize + imsize + GIF_JS_HEADER_I); i++){
 						fprintf(out, "%c", outbuf[i]);
 					}

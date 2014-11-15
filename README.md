@@ -20,6 +20,10 @@ Example:
 `$ ./imagejs bmp code.js -l`  
 will return a file named code.js.bmp that is viewable.
 
+Code can now be embedded into existing gif files by using the flag `-i` with a gif file as argument.  
+Example:  
+`$ ./imagejs gif code.js -i giffile.gif`
+
 For more information and to view an example image visit [jklmnn.de](http://jklmnn.de/imagejs/).  
 
 Supported output files are: gif, bmp, webp, pnm, pgf  
