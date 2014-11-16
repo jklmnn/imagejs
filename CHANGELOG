@@ -1,0 +1,6 @@
+0.4.1:
+	Gif, bmp, webp, pnm and pgf are supported.
+	Bmp can be made viewable as line.
+	Bug with functions being missinterpreted because of missing semicolon fixed.
+0.5.0:
+	Added ability to inject gif files.
