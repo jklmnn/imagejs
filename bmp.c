@@ -38,6 +38,17 @@ char *bmp_js_v(char *content, int size){
 	return buffer;
 }
 
+char *bmp_js_i(char *content, int csize, char *image, int isize){
+	const char _bmp_header[7] = {0x42, 0x4d, 0x3d, 0x30, 0x3b, 0x2f, 0x2a};
+	const char _bmp_header_end[BMP_JS_HEADER_I] = {0x2a, 0x2f, 0x3b};
+	char *buffer = (char*)malloc(csize + isize + BMP_JS_HEADER_I);
+	memcpy(buffer, _bmp_header, 7);
+	memcpy(&buffer[7], &image[7], isize - 7);
+	memcpy(&buffer[isize], _bmp_header_end, BMP_JS_HEADER_I);
+	memcpy(&buffer[isize + BMP_JS_HEADER_I], content, csize);
+	return buffer;
+}
+
 char *bmp_filename(char *fn, int size){
 	const char _bmp_ending[BMP_ENDING] = {0x2e, 0x62, 0x6d, 0x70, 0x00};
 	char *newfile = (char*)malloc(size + BMP_ENDING);
