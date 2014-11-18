@@ -6,3 +6,6 @@
 	Added ability to inject gif files
 0.6.0:
 	Added injecting to bmp files.
+0.7.0:
+	Added injecting to webp files.
+	Fixed crash on not existing gif file.

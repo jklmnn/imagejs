@@ -22,6 +22,8 @@ Code can now be embedded into existing gif files by using the flag `-i` with a g
 Example:  
 `$ ./imagejs gif code.js -i giffile.gif`
 
+This is currently available for gif, bmp, webp, where webp is still beta.
+
 For more information and to view an example image visit [jklmnn.de](http://jklmnn.de/imagejs/).  
 
 Supported output files are: gif, bmp, webp, pnm, pgf  

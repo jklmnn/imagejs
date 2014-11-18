@@ -129,7 +129,10 @@ int main(int argc, char *argv[]){
 						fprintf(out, "%c", outbuf[i]);
 					}
 					free(imbuf);
-				}
+				 }else{
+					 _help(argv[4], 3);
+					 return 2;
+				 }
 			}else if(strcmp(argv[3], "-i") == 0){
 				_help(argv[3], 2);
 				return 2;
@@ -146,8 +149,32 @@ int main(int argc, char *argv[]){
 		}
 	}else if(strcmp(argv[1], "webp") == 0){
 		if(argc > 3){
-			_help(argv[3], 1);
-			return 3;
+			if(argc > 4){
+				FILE *im = fopen(argv[4], "rb");
+				if(im){
+					fseek(im, 0 , SEEK_END);
+					int imsize = ftell(im);
+					rewind(im);
+					char *imbuf = (char*)malloc(imsize + sizeof(char));
+					fread(imbuf, 1, imsize, im);
+					fclose(im);
+					outbuf = webp_js_i(buf, filesize, imbuf, imsize);
+					out = fopen(webp_filename(argv[2], getlen(argv[2])), "wb");
+					for(int i = 0; i < (filesize + imsize + WEBP_JS_HEADER_I); i++){
+						fprintf(out, "%c", outbuf[i]);
+					}
+					free(imbuf);
+				}else{
+					_help(argv[4], 3);
+					return 3;
+				}
+			}else if(strcmp(argv[3], "-i") == 0){
+				_help(argv[3], 2);
+				return 2;
+			}else{
+				_help(argv[3], 1);
+				return 3;
+			}
 		}else{
 			outbuf = webp_js(buf, filesize);
 			out = fopen(webp_filename(argv[2], getlen(argv[2])), "wb");
