@@ -16,6 +16,11 @@ amd64:
 	gcc -m64 -std=c11 -c gif.c bmp.c webp.c pnm.c pgf.c main.c 
 	gcc -m64 *.o -o imagejs.x86_64
 	rm -f *.o
+armhf:
+	#Tested on Raspbian
+	gcc -std=c99 -c gif.c bmp.c webp.c pnm.c pgf.c main.c
+	gcc *.o -o imagejs.armhf
+	rm -rf *.o
 win32:
 	i686-w64-mingw32-gcc -std=c11 -c gif.c bmp.c webp.c pnm.c pgf.c main.c 
 	i686-w64-mingw32-gcc *.o -o imagejs.exe
