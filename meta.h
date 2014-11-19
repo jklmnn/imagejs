@@ -8,7 +8,7 @@ License: GNU GENERAL PUBLIC LICENSE Version 3
 
 
 #define VERSION_MAJ 0
-#define VERSION_MIN 7
+#define VERSION_MIN 8
 #define VERSION_FIX 0
 #define AUTHOR "jklmnn"
 #define HOMEPAGE "http://jklmnn.de/imagejs"

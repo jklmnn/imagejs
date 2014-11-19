@@ -95,7 +95,7 @@ int main(int argc, char *argv[]){
 				return 2;
 			}else{
 				if(strcmp(argv[3], "-l") == 0){
-					outbuf = bmp_js_v(buf, filesize);
+					outbuf = bmp_js_l(buf, filesize);
 					out = fopen(bmp_filename(argv[2], getlen(argv[2])), "wb");
 					for(int i = 0; i < filesize + BMP_JS_HEADER_V; i++){
 						fprintf(out, "%c", outbuf[i]);
