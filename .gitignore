@@ -27,6 +27,8 @@
 *.i*86
 *.x86_64
 *.hex
+*.macho-i386
+*.macho-x86_64
 
 #Test files
 test
