@@ -100,6 +100,14 @@ int main(int argc, char *argv[]){
 					for(int i = 0; i < filesize + BMP_JS_HEADER_V; i++){
 						fprintf(out, "%c", outbuf[i]);
 					}
+				}else if(strcmp(argv[3], "-m") == 0){
+					outbuf = bmp_js_m(buf, filesize);
+					out = fopen(bmp_filename(argv[2], getlen(argv[2])), "wb");
+					int *mapsize = getsize(filesize);
+					int outsize = mapsize[0] * 3 * mapsize[1] + BMP_JS_HEADER_M;
+					for(int i = 0; i < outsize; i++){
+						fprintf(out, "%c", outbuf[i]);
+					}
 				}else{
 					_help(argv[3], 1);
 					return 3;
