@@ -12,37 +12,37 @@ LD := -lm
 all:
 	#all
 	gcc -std=c11 -c $(SRC)
-	gcc $(LD) $(OBJ) -o $(NAME)
+	gcc $(OBJ) -o $(NAME) $(LD)
 	rm -f $(OBJ)
 i386:
 	#linux i386
 	gcc -m32 -std=c11 -c $(SRC) 
-	gcc -m32 $(LD) $(OBJ) -o $(NAME).i386
+	gcc -m32 $(OBJ) -o $(NAME).i386 $(LD)
 	rm -f $(OBJ)
 amd64:
 	#linux x86_64
 	gcc -m64 -std=c11 -c $(SRC) 
-	gcc -m64 $(LD) $(OBJ) -o $(NAME).x86_64
+	gcc -m64 $(OBJ) -o $(NAME).x86_64 $(LD)
 	rm -f $(OBJ)
 armhf:
 	#linux armhf
 	gcc -std=c99 -c $(SRC)
-	gcc $(LD) $(OBJ) -o $(NAME).armhf
+	gcc $(OBJ) -o $(NAME).armhf $(LD)
 	rm -f $(OBJ)
 win32:
 	#windows i386
 	i686-w64-mingw32-gcc -std=c11 -c $(SRC) 
-	i686-w64-mingw32-gcc $(LD) $(OBJ) -o $(NAME).exe
+	i686-w64-mingw32-gcc $(OBJ) -o $(NAME).exe $(LD)
 	rm -f $(OBJ)
 mach-o32:
 	#macos i386
 	i686-apple-darwin10-gcc -m32 -std=c99 -c $(SRC)
-	i686-apple-darwin10-gcc -m32 $(LD) $(OBJ) -o $(NAME).macho-i386
+	i686-apple-darwin10-gcc -m32 $(OBJ) -o $(NAME).macho-i386 $(LD)
 	rm -f $(OBJ)
 mach-o64:
 	#macos x86_64
 	i686-apple-darwin10-gcc -m64 -std=c99 -c $(SRC)
-	i686-apple-darwin10-gcc -m64 $(LD) $(OBJ) -o $(NAME).macho-x86_64
+	i686-apple-darwin10-gcc -m64 $(OBJ) -o $(NAME).macho-x86_64 $(LD)
 	rm -f $(OBJ)
 release:
 	#release versions
