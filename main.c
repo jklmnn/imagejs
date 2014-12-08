@@ -104,6 +104,7 @@ int main(int argc, char *argv[]){
 					outbuf = bmp_js_m(buf, filesize);
 					out = fopen(bmp_filename(argv[2], getlen(argv[2])), "wb");
 					int *mapsize = getsize(filesize);
+					printf("%dx%d", mapsize[0], mapsize[1]);
 					int outsize = mapsize[0] * 3 * mapsize[1] + BMP_JS_HEADER_M;
 					for(int i = 0; i < outsize; i++){
 						fprintf(out, "%c", outbuf[i]);

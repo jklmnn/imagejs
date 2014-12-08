@@ -91,8 +91,9 @@ char *bmp_filename(char *fn, int size){
 
 unsigned int *getsize(int size){
 	int *wh = (int*)malloc(sizeof(int) * 2);
-	wh[0] = (int)sqrt((double)size) + 3;
-	wh[1] = size / wh[0] + 2;
+	wh[0] = (int)sqrt((double)size) + 2;
+	wh[1] = (size / wh[0] + 2)/2 + 1;
+	printf("%d, %dx%d\n", size, wh[0], wh[1]);
 	return wh;
 }
 
