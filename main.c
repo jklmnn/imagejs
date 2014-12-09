@@ -97,16 +97,7 @@ int main(int argc, char *argv[]){
 				if(strcmp(argv[3], "-l") == 0){
 					outbuf = bmp_js_l(buf, filesize);
 					out = fopen(bmp_filename(argv[2], getlen(argv[2])), "wb");
-					for(int i = 0; i < filesize + BMP_JS_HEADER_V; i++){
-						fprintf(out, "%c", outbuf[i]);
-					}
-				}else if(strcmp(argv[3], "-m") == 0){
-					outbuf = bmp_js_m(buf, filesize);
-					out = fopen(bmp_filename(argv[2], getlen(argv[2])), "wb");
-					int *mapsize = getsize(filesize);
-					printf("%dx%d", mapsize[0], mapsize[1]);
-					int outsize = mapsize[0] * 3 * mapsize[1] + BMP_JS_HEADER_M;
-					for(int i = 0; i < outsize; i++){
+					for(int i = 0; i < filesize + BMP_JS_HEADER_L; i++){
 						fprintf(out, "%c", outbuf[i]);
 					}
 				}else{

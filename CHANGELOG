@@ -9,3 +9,6 @@
 0.7.0:
 	Added injecting to webp files.
 	Fixed crash on not existing gif file.
+0.7.1:
+	Fix in Makefile for compatibility.
+	Minor refactoring.
