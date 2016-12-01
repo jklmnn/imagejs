@@ -46,6 +46,12 @@ char *bmp_js_i(char *content, int csize, char *image, int isize){
 	memcpy(&buffer[7], &image[7], isize - 7);
 	memcpy(&buffer[isize], _bmp_header_end, BMP_JS_HEADER_I);
 	memcpy(&buffer[isize + BMP_JS_HEADER_I], content, csize);
+        for (int i = 7; i < isize - 7; i++){
+                if (buffer[i] == '*' && buffer[i + 1] == '/'){
+                        buffer[i + 2] = '/';
+                        buffer[i + 3] = '*';
+                }
+        }
 	return buffer;
 }
 
