@@ -24,8 +24,6 @@ Example:
 
 This is currently available for gif, bmp, webp, where webp is still beta.
 
-For more information and to view an example image visit [jklmnn.de](http://jklmnn.de/imagejs/).  
-
 Supported output files are: gif, bmp, webp, pnm, pgf  
 
 Background:
@@ -33,4 +31,4 @@ Background:
 
 This tool allows you to create a picture file that is able to run javascript code.
 A file like this is able to extend XSS vulnerabilities. For example, if you are able to put a script tag on a website but cant run the script because it only runs scripts from this website, you can just upload e.g. a profile picture containing the code you want to run.
-The idea came from [Ajin Abraham](http://iamajin.blogspot.in/2014/11/when-gifs-serve-javascript.html) and i put it in c code and also added the ability to do the same thing also with bitmap files.
+The idea came from [Ajin Abraham](http://iamajin.blogspot.in/2014/11/when-gifs-serve-javascript.html) and I put it in C code and also added the ability to do the same thing also with bitmap files.
