@@ -1,0 +1,15 @@
+/*
+File: meta.h
+Project: imagejs
+Author: jklmnn
+Homepage: http://jklmnn.de/imagejs/
+License: GNU GENERAL PUBLIC LICENSE Version 3
+*/
+
+
+#define VERSION_MAJ @VERSION_MAJ@
+#define VERSION_MIN @VERSION_MIN@
+#define VERSION_FIX @VERSION_FIX@
+#define AUTHOR @AUTHOR@
+#define HOMEPAGE @HOMEPAGE@
+#define LICENSE @LICENSE@

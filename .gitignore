@@ -30,5 +30,8 @@
 *.macho-i386
 *.macho-x86_64
 
+# CMake build
+build
+
 #Test files
 test
