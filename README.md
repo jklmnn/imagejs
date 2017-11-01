@@ -4,13 +4,17 @@ imagejs
 Small tool to package javascript into a valid image file.  
 Currently supported are gif and bmp.
 
+Building:
+
+`mkdir build && cd build && cmake .. && make`
+
 Usage:
 
-Run 'make' to compile and then run 'imagejs option jsfile.js'
+Run `imagejs option jsfile.js`.
 The outcoming image file will be named like the input file + the image ending..
-Options are currently bmp, gif, webp, pnm and pgf.
+Options are currently `bmp`, `gif`, `webp`, `pnm` and `pgf`.
 
-If you add -l as flag you your image is written to the file so that you can open it and view your code as a line of pixels.  
+If you add `-l` as flag you your image is written to the file so that you can open it and view your code as a line of pixels.  
 This is currently only supported for bmp files.
 
 Example:
@@ -24,7 +28,7 @@ Example:
 
 This is currently available for gif, bmp, webp, where webp is still beta.
 
-Supported output files are: gif, bmp, webp, pnm, pgf  
+Supported output files are: `gif`, `bmp`, `webp`, `pnm`, `pgf`  
 
 Background:
 -----------
