@@ -6,7 +6,17 @@ Currently supported are gif and bmp.
 
 Building:
 
-`mkdir build && cd build && cmake .. && make`
+To build this tool, `build-essential` and `cmake` are required (this is for Debian and Ubuntu based systems, for any other system please refer to its documentation).
+After installing the dependencies, run the following commands:
+
+```
+$ git clone https://github.com/jklmnn/imagejs.git
+$ cd imagejs
+$ mkdir build
+$ cd build
+$ cmake ..
+$ make
+```
 
 Usage:
 
