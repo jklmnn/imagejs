@@ -6,7 +6,7 @@ Homepage: http://jklmnn.de/imagejs/
 License: GNU GENERAL PUBLIC LICENSE Version 3
 */
 
-
+#include <stdio.h>
 #include "gif.h"
 
 char *gif_js(char *content, int size){
@@ -25,6 +25,12 @@ char *gif_js_i(char *content, int csize, char *image, int isize){
 	memcpy(&buffer[8], &image[8], isize - 8);
 	memcpy(&buffer[isize], _gif_header_end, GIF_JS_HEADER_I);
 	memcpy(&buffer[isize + GIF_JS_HEADER_I], content, csize);
+        for (int i = 8; i < isize - 8; i++){
+                if (buffer[i] == '*' && buffer[i + 1] == '/'){
+                        buffer[i + 2] = '/';
+                        buffer[i + 3] = '*';
+                }
+        }
 	return buffer;
 }
 
