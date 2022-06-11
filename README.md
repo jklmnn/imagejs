@@ -4,7 +4,19 @@ imagejs
 Small tool to package javascript into a valid image file.  
 Currently supported are gif and bmp.
 
-Building:
+### Disclaimer
+
+This program is just a proof of concept example. It may contain bugs and it is
+only tested with valid inputs. Do NOT pass untrusted data to this program.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR
+PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS BE LIABLE FOR ANY CLAIM,
+DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+IN THE SOFTWARE.
+
+### Building
 
 To build this tool, `build-essential` and `cmake` are required (this is for Debian and Ubuntu based systems, for any other system please refer to its documentation).
 After installing the dependencies, run the following commands:
@@ -18,7 +30,7 @@ $ cmake ..
 $ make
 ```
 
-Usage:
+### Usage
 
 Run `imagejs option jsfile.js`.
 The outcoming image file will be named like the input file + the image ending..
@@ -27,7 +39,7 @@ Options are currently `bmp`, `gif`, `webp`, `pnm` and `pgf`.
 If you add `-l` as flag you your image is written to the file so that you can open it and view your code as a line of pixels.  
 This is currently only supported for bmp files.
 
-Example:
+### Example
 
 `$ ./imagejs bmp code.js -l`  
 will return a file named code.js.bmp that is viewable.
